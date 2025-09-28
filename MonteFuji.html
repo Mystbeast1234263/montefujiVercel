@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Monte Fuji — Japón</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;900&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: -1;
+    }
+
+    header h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 4rem;
+      color: #e11d48;
+      text-shadow: 2px 2px 15px #000;
+      letter-spacing: 2px;
+      animation: fadeDown 1.5s ease;
+    }
+
+    header p {
+      margin-top: 12px;
+      font-size: 1.3rem;
+      color: #f5f5f5;
+      animation: fadeDown 2s ease;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    section h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #e11d48;
+      position: relative;
+      display: inline-block;
+    }
+    section h2::after {
+      content: "";
+      position: absolute;
+      width: 80px; height: 4px;
+      background: #e11d48;
+      bottom: -10px; left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 20px;
+      border: 2px solid #27272a;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "⛩️";
+      position: absolute;
+      font-size: 4rem;
+      opacity: 0.05;
+      top: 10px; right: 10px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      border-color: #e11d48;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.3rem;
+      color: #f8fafc;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #d4d4d8;
+    }
+
+    footer {
+      background: #0f0f0f;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #a1a1aa;
+    }
+
+    /* Animación scroll */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Video background con tu enlace -->
+    <video autoplay muted loop playsinline>
+      <source src="https://www.pexels.com/es-es/download/video/6602522/" type="video/mp4">
+    </video>
+
+    <h1>富士山 • Monte Fuji</h1>
+    <p>La montaña sagrada de Japón</p>
+  </header>
+
+  <section>
+    <h2 data-animate>Historia</h2>
+    <p data-animate>
+      Con 3.776 metros de altura, el Monte Fuji es el pico más alto de Japón y un volcán venerado desde tiempos antiguos.
+      Sus laderas han inspirado templos, poemas y obras de arte como la famosa ola de Hokusai.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-animate>Lugares destacados</h2>
+    <div class="cards">
+      <div class="card" data-animate>
+        <img src="https://cdn.getyourguide.com/img/location/5b60ccb628680.jpeg/99.jpg" alt="Lago Kawaguchi">
+        <h3>Lago Kawaguchi</h3>
+        <p>Famoso por reflejar el Fuji en sus aguas, especialmente al amanecer.</p>
+      </div>
+      <div class="card" data-animate>
+        <img src="https://cdn.gaijinpot.com/app/uploads/sites/6/2019/11/Chureito-Pagoda-Autumn-1024x568.jpg" alt="Pagoda Chureito">
+        <h3>Pagoda Chureito</h3>
+        <p>El mirador más icónico, con la pagoda roja frente al monte nevado.</p>
+      </div>
+      <div class="card" data-animate>
+        <img src="https://cdn.getyourguide.com/img/location/606212d105cef-wide.jpeg/99.jpg" alt="5ta Estación">
+        <h3>5ta Estación</h3>
+        <p>El punto de partida favorito para quienes escalan hasta la cima.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 — Monte Fuji • Japón • Desplegado en Vercel 🚀
+  </footer>
+
+  <script>
+    // Animaciones al hacer scroll
+    const items = document.querySelectorAll('[data-animate]');
+    const onScroll = () => {
+      items.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+</body>
+</html>
