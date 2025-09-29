@@ -13,8 +13,40 @@
       background: #0f0f0f url('https://www.transparenttextures.com/patterns/asfalt-light.png');
       color: #f5f5f5;
       overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
     }
 
+    /* 🔹 NAVBAR */
+    nav {
+      background: #111;
+      padding: 15px;
+      text-align: center;
+      border-bottom: 3px solid #e11d48;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    nav a {
+      text-decoration: none;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.2rem;
+      color: #e11d48;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    nav a:hover, nav a.active {
+      background: #e11d48;
+      color: #fff;
+    }
+
+    /* 🔹 HEADER */
     header {
       height: 100vh;
       display: flex;
@@ -25,7 +57,6 @@
       position: relative;
       overflow: hidden;
     }
-
     header video {
       position: absolute;
       top: 0; left: 0;
@@ -34,43 +65,32 @@
       object-fit: cover;
       z-index: -2;
     }
-
     header::after {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background: rgba(0,0,0,0.6);
       z-index: -1;
     }
-
     header h1 {
       font-family: 'Noto Serif JP', serif;
       font-size: 4rem;
       color: #e11d48;
       text-shadow: 2px 2px 15px #000;
-      letter-spacing: 2px;
       animation: fadeDown 1.5s ease;
     }
-
     header p {
       margin-top: 12px;
       font-size: 1.3rem;
-      color: #f5f5f5;
       animation: fadeDown 2s ease;
     }
-
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-40px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
-    }
-
+    /* 🔹 SECCIONES */
+    section { padding: 60px 20px; max-width: 900px; margin: auto; text-align: center; }
     section h2 {
       font-family: 'Noto Serif JP', serif;
       font-size: 2.5rem;
@@ -88,134 +108,506 @@
       transform: translateX(-50%);
     }
 
+    /* 🔹 CARDS */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
-      margin-top: 40px;
+      margin-top: 30px;
     }
-
     .card {
       background: #1a1a1a;
       border-radius: 12px;
-      padding: 20px;
-      border: 2px solid #27272a;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
+      padding: 15px;
+      border: 2px solid transparent;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
       position: relative;
-      overflow: hidden;
     }
-
-    .card::before {
-      content: "⛩️";
-      position: absolute;
-      font-size: 4rem;
-      opacity: 0.05;
-      top: 10px; right: 10px;
-    }
-
     .card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      transform: scale(1.05);
       border-color: #e11d48;
+      box-shadow: 0 0 20px rgba(225, 29, 72, 0.6);
     }
+    .card h3 { margin: 10px 0; font-family: 'Noto Serif JP', serif; color: #fff; }
+    .card p { font-size: 0.9rem; color: #ddd; }
 
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
+    /* 🔹 CRUD */
+    .crud-section {
+      display: none;
+      background: #111;
+      color: #f5f5f5;
+      border-top: 4px solid #e11d48;
+      padding: 40px 20px;
       border-radius: 10px;
-      margin-bottom: 15px;
     }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-family: 'Noto Serif JP', serif;
-      font-size: 1.3rem;
-      color: #f8fafc;
+    #viaje-form {
+      display: grid;
+      gap: 12px;
+      max-width: 500px;
+      margin: auto;
     }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #d4d4d8;
+    #viaje-form input, #viaje-form textarea, #viaje-form button {
+      padding: 10px;
+      border: 2px solid #e11d48;
+      border-radius: 6px;
+      background: #1a1a1a;
+      color: #fff;
     }
+    #viaje-form button {
+      background: #e11d48;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+    #viaje-form button:hover { transform: scale(1.05); background: #c8102e; }
 
-    footer {
-      background: #0f0f0f;
+    .crud-section .card {
+      background: #1a1a1a;
+      color: #f5f5f5;
+    }
+    .crud-section .card h3 { color: #e11d48; }
+    .crud-section .card button {
+      background: #e11d48;
+      margin: 5px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .crud-section .card button:hover { background: #c8102e; }
+
+    /* 🔹 POPUP */
+    .popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      animation: fadeIn 0.4s ease;
+    }
+    .popup-content {
+      background: #111;
+      padding: 25px;
+      border-radius: 12px;
+      border: 3px solid #e11d48;
       text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #a1a1aa;
+      font-family: 'Noto Serif JP', serif;
+      position: relative;
+      max-width: 400px;
+      animation: zoomIn 0.3s ease;
+      color: #fff;
+    }
+    .popup-content h3 { margin-bottom: 20px; color: #e11d48; }
+    .popup-content button {
+      margin: 5px;
+      padding: 8px 15px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn-confirm { background: #e11d48; color: #fff; }
+    .btn-cancel { background: #444; color: #fff; }
+
+
+
+    /* 🔹 Contenedor de pasajeros */
+/* 🔹 Animación abrir pasajeros */
+.pasajeros {
+  margin-top: 15px;
+  padding: 15px;
+  border: 2px solid #e11d48;
+  border-radius: 10px;
+  background: #1a1a1a;
+  overflow: hidden;
+  animation: slideDown 0.4s ease forwards;
+  transform-origin: top;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: scaleY(0.8);
+  }
+  to {
+    opacity: 1;
+    max-height: 500px; /* suficiente para varios pasajeros */
+    transform: scaleY(1);
+  }
+}
+
+
+/* Título */
+.pasajeros h4 {
+  color: #e11d48;
+  font-family: 'Noto Serif JP', serif;
+  margin-bottom: 10px;
+}
+
+/* Lista */
+.pasajeros ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+.pasajeros li {
+  background: #222;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.pasajeros li button {
+  margin-left: 5px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #e11d48;
+  color: #fff;
+  font-size: 0.8rem;
+  transition: 0.2s;
+}
+.pasajeros li button:hover { background: #c8102e; }
+
+.pasajeros form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pasajeros input {
+  flex: 1;
+  min-width: 100px;
+  padding: 6px;
+  border: 2px solid #e11d48;
+  border-radius: 5px;
+  background: #111;
+  color: #fff;
+}
+.pasajeros button[type="submit"] {
+  background: #e11d48;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.pasajeros button[type="submit"]:hover {
+  background: #c8102e;
+}
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
-    /* Animación scroll */
-    [data-animate] {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease;
-    }
-    [data-animate].visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    @keyframes slideUp {
+  from {
+    opacity: 1;
+    max-height: 500px;
+    transform: scaleY(1);
+  }
+  to {
+    opacity: 0;
+    max-height: 0;
+    transform: scaleY(0.8);
+  }
+}
+
   </style>
 </head>
 <body>
-  <header>
+  <!-- NAV -->
+  <nav>
+    <ul>
+      <li><a href="#inicio" class="active" onclick="mostrarInicio()">Inicio</a></li>
+      <li><a href="#viajes" onclick="mostrarViajes()">Viajes</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header id="inicio">
     <video autoplay muted loop playsinline>
       <source src="https://www.pexels.com/es-es/download/video/6602522/" type="video/mp4">
     </video>
-
     <h1>富士山 • Monte Fuji</h1>
     <p>La montaña sagrada de Japón</p>
   </header>
 
+  <!-- HISTORIA -->
   <section>
     <h2 data-animate>Historia</h2>
-    <p data-animate>
-      Con 3.776 metros de altura, el Monte Fuji es el pico más alto de Japón y un volcán venerado desde tiempos antiguos.
-      Sus laderas han inspirado templos, poemas y obras de arte como la famosa ola de Hokusai.
-    </p>
+    <p data-animate>Con 3.776 metros de altura, el Monte Fuji es el pico más alto de Japón y un volcán venerado desde tiempos antiguos.</p>
   </section>
 
+  <!-- LUGARES -->
   <section>
     <h2 data-animate>Lugares destacados</h2>
     <div class="cards">
       <div class="card" data-animate>
-        <img src="https://cdn.getyourguide.com/img/location/5b60ccb628680.jpeg/99.jpg" alt="Lago Kawaguchi">
+        <img src="https://cdn.getyourguide.com/img/location/5b60ccb628680.jpeg/99.jpg" alt="Lago Kawaguchi" style="width:100%;border-radius:8px;">
         <h3>Lago Kawaguchi</h3>
-        <p>Famoso por reflejar el Fuji en sus aguas, especialmente al amanecer.</p>
+        <p>Famoso por reflejar el Fuji en sus aguas.</p>
       </div>
       <div class="card" data-animate>
-        <img src="https://cdn.gaijinpot.com/app/uploads/sites/6/2019/11/Chureito-Pagoda-Autumn-1024x568.jpg" alt="Pagoda Chureito">
+        <img src="https://cdn.gaijinpot.com/app/uploads/sites/6/2019/11/Chureito-Pagoda-Autumn-1024x568.jpg" alt="Pagoda Chureito" style="width:100%;border-radius:8px;">
         <h3>Pagoda Chureito</h3>
-        <p>El mirador más icónico, con la pagoda roja frente al monte nevado.</p>
+        <p>El mirador más icónico del monte nevado.</p>
       </div>
       <div class="card" data-animate>
-        <img src="https://cdn.getyourguide.com/img/location/606212d105cef-wide.jpeg/99.jpg" alt="5ta Estación">
+        <img src="https://cdn.getyourguide.com/img/location/606212d105cef-wide.jpeg/99.jpg" alt="5ta Estación" style="width:100%;border-radius:8px;">
         <h3>5ta Estación</h3>
-        <p>El punto de partida favorito para quienes escalan hasta la cima.</p>
+        <p>Punto de partida favorito para la cima.</p>
       </div>
     </div>
   </section>
 
-  <footer>
-    © 2025 — Monte Fuji • Japón • Desplegado en Vercel 🚀
-  </footer>
+  <!-- CRUD -->
+  <section id="viajes" class="crud-section">
+    <h2>Gestión de Viajes al Monte Fuji</h2>
+    <form id="viaje-form">
+      <input type="hidden" id="viaje-id">
+      <input type="text" id="nombre" placeholder="Nombre del viaje" required>
+      <input type="date" id="fecha" required>
+      <input type="number" id="precio" placeholder="Precio ($)" required>
+      <textarea id="descripcion" placeholder="Descripción del viaje" required></textarea>
+      <button type="submit">Guardar Viaje</button>
+    </form>
+    <div id="lista-viajes" class="cards"></div>
+  </section>
+
+  <footer><center>Bim Barabum Mr.Worldwide
+When I Step On In A Room 
+Dale! </center></footer>
+
+  <!-- POPUP -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h3 id="popup-msg">Mensaje</h3>
+      <button class="btn-confirm" id="popup-ok">Aceptar</button>
+      <button class="btn-cancel" id="popup-cancel">Cancelar</button>
+    </div>
+  </div>
 
   <script>
-    // Animaciones al hacer scroll
-    const items = document.querySelectorAll('[data-animate]');
-    const onScroll = () => {
-      items.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 80) {
-          el.classList.add('visible');
-        }
+    function mostrarViajes() {
+      document.querySelector("#viajes").style.display = "block";
+      document.querySelector("#inicio").scrollIntoView({ behavior: "smooth" });
+      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+      document.querySelector("nav a[href='#viajes']").classList.add("active");
+    }
+    function mostrarInicio() {
+      document.querySelector("#viajes").style.display = "none";
+      document.querySelector("#inicio").scrollIntoView({ behavior: "smooth" });
+      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+      document.querySelector("nav a[href='#inicio']").classList.add("active");
+    }
+  </script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, addDoc, updateDoc, deleteDoc, doc }
+      from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+
+    const firebaseConfig = { 
+      apiKey: "AIzaSyAJmWPXxl6J1Odsn4PAAmNlWkgbZviltHs", 
+      authDomain: "montefuji-166d0.firebaseapp.com", 
+      projectId: "montefuji-166d0", 
+      storageBucket: "montefuji-166d0.firebasestorage.app", 
+      messagingSenderId: "747606452913", 
+      appId: "1:747606452913:web:a6c15b35b18a5fb9a85090" 
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const viajesCol = collection(db, "viajes");
+
+    const popup = document.getElementById("popup");
+    const popupMsg = document.getElementById("popup-msg");
+    const popupOk = document.getElementById("popup-ok");
+    const popupCancel = document.getElementById("popup-cancel");
+    let confirmCallback = null;
+
+    function showPopup(msg, confirmCb=null) {
+      popupMsg.textContent = msg;
+      popup.style.display = "flex";
+      confirmCallback = confirmCb;
+      if (confirmCb) popupCancel.style.display = "inline-block";
+      else popupCancel.style.display = "none";
+    }
+    popupOk.onclick = () => { popup.style.display = "none"; if(confirmCallback) confirmCallback(); };
+    popupCancel.onclick = () => { popup.style.display = "none"; };
+
+    async function cargarViajes() {
+      const snapshot = await getDocs(viajesCol);
+      const contenedor = document.getElementById("lista-viajes");
+      contenedor.innerHTML = "";
+      snapshot.forEach(d => {
+        const data = d.data();
+               contenedor.innerHTML += `
+          <div class="card" data-id="${d.id}">
+            <h3>${data.nombre}</h3>
+            <p><b>Fecha:</b> ${data.fecha}</p>
+            <p><b>Precio:</b> $${data.precio}</p>
+            <p>${data.descripcion}</p>
+            <button onclick="editarViaje('${d.id}', '${data.nombre}', '${data.fecha}', '${data.precio}', '${data.descripcion}')">Editar</button>
+            <button onclick="confirmarEliminar('${d.id}')">Eliminar</button>
+            <button onclick="verPasajeros('${d.id}')">Ver Pasajeros</button>
+          </div>`;
+
+      });
+    }
+
+    document.getElementById("viaje-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const id = document.getElementById("viaje-id").value;
+      const viajeData = {
+        nombre: document.getElementById("nombre").value,
+        fecha: document.getElementById("fecha").value,
+        precio: parseFloat(document.getElementById("precio").value),
+        descripcion: document.getElementById("descripcion").value
+      };
+      if (id) { 
+        await updateDoc(doc(db, "viajes", id), viajeData); 
+        showPopup("Viaje actualizado"); 
+      }
+      else { 
+        await addDoc(viajesCol, viajeData); 
+        showPopup("Viaje agregado con éxito"); 
+      }
+      e.target.reset();
+      document.getElementById("viaje-id").value = "";
+      cargarViajes();
+    });
+
+    window.confirmarEliminar = (id) => {
+      showPopup("¿Seguro que deseas eliminar este viaje?", async () => {
+        await deleteDoc(doc(db, "viajes", id));
+        showPopup("Viaje eliminado");
+        cargarViajes();
       });
     };
-    window.addEventListener('scroll', onScroll);
-    onScroll();
+
+    window.editarViaje = (id, nombre, fecha, precio, descripcion) => {
+      document.getElementById("viaje-id").value = id;
+      document.getElementById("nombre").value = nombre;
+      document.getElementById("fecha").value = fecha;
+      document.getElementById("precio").value = precio;
+      document.getElementById("descripcion").value = descripcion;
+      showPopup("Edita y guarda para actualizar");
+    };
+
+    cargarViajes();
+
+        // =============== 👇 PASAJEROS ===============
+ 
+
+
+    // Mostrar pasajeros de un viaje
+    window.verPasajeros = async (viajeId) => {
+      const contenedor = document.getElementById(`pasajeros-${viajeId}`);
+       if (contenedor) {
+    if (contenedor.style.display === "block") {
+      // 🔹 animación de cierre
+      contenedor.style.animation = "slideUp 0.4s ease forwards";
+      setTimeout(() => { contenedor.style.display = "none"; }, 400);
+    } else {
+      // 🔹 mostrar con animación
+      contenedor.style.display = "block";
+      contenedor.style.animation = "slideDown 0.4s ease forwards";
+      await cargarPasajeros(viajeId);
+    }
+    return;
+  }
+
+      // Crear contenedor dinámico
+      const card = document.querySelector(`[data-id='${viajeId}']`);
+      const div = document.createElement("div");
+      div.id = `pasajeros-${viajeId}`;
+      div.className = "pasajeros";
+      div.innerHTML = `
+        <h4>Pasajeros</h4>
+        <ul id="lista-pasajeros-${viajeId}"></ul>
+        <form onsubmit="agregarPasajero(event, '${viajeId}')">
+          <input type="text" id="nombrePas-${viajeId}" placeholder="Nombre pasajero" required>
+          <input type="number" id="edadPas-${viajeId}" placeholder="Edad" required>
+          <button type="submit">Agregar</button>
+        </form>
+      `;
+      card.appendChild(div);
+      await cargarPasajeros(viajeId);
+    };
+
+    // Cargar pasajeros
+    async function cargarPasajeros(viajeId) {
+      const pasajerosRef = collection(db, "viajes", viajeId, "pasajeros");
+      const snapshot = await getDocs(pasajerosRef);
+      const lista = document.getElementById(`lista-pasajeros-${viajeId}`);
+      lista.innerHTML = "";
+      snapshot.forEach(p => {
+        const data = p.data();
+        lista.innerHTML += `
+          <li>
+            ${data.nombre} (${data.edad} años)
+            <button onclick="editarPasajero('${viajeId}','${p.id}','${data.nombre}',${data.edad})">Editar</button>
+            <button onclick="eliminarPasajero('${viajeId}','${p.id}')">Eliminar</button>
+          </li>`;
+      });
+    }
+
+    // Agregar pasajero
+   // Agregar pasajero
+window.agregarPasajero = async (e, viajeId) => {
+  e.preventDefault();
+  const nombre = document.getElementById(`nombrePas-${viajeId}`).value;
+  const edad = parseInt(document.getElementById(`edadPas-${viajeId}`).value);
+  const pasajerosRef = collection(db, "viajes", viajeId, "pasajeros");
+  await addDoc(pasajerosRef, { nombre, edad });
+  e.target.reset();
+  await cargarPasajeros(viajeId);
+  showPopup("Pasajero agregado con éxito ✅");
+};
+
+// Eliminar pasajero
+window.eliminarPasajero = async (viajeId, pasajeroId) => {
+  showPopup("¿Seguro que deseas eliminar este pasajero?", async () => {
+    await deleteDoc(doc(db, "viajes", viajeId, "pasajeros", pasajeroId));
+    await cargarPasajeros(viajeId);
+    showPopup("Pasajero eliminado ");
+  });
+};
+
+// Editar pasajero
+window.editarPasajero = (viajeId, pasajeroId, nombre, edad) => {
+  document.getElementById(`nombrePas-${viajeId}`).value = nombre;
+  document.getElementById(`edadPas-${viajeId}`).value = edad;
+
+  const form = document.querySelector(`#pasajeros-${viajeId} form`);
+  form.onsubmit = async (e) => {
+    e.preventDefault();
+    await updateDoc(doc(db, "viajes", viajeId, "pasajeros", pasajeroId), {
+      nombre: document.getElementById(`nombrePas-${viajeId}`).value,
+      edad: parseInt(document.getElementById(`edadPas-${viajeId}`).value)
+    });
+    form.reset();
+    form.onsubmit = (ev) => window.agregarPasajero(ev, viajeId);
+    await cargarPasajeros(viajeId);
+    showPopup("Pasajero actualizado ");
+  };
+};
+
   </script>
 </body>
 </html>
