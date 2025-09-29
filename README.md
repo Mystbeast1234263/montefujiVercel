@@ -40,15 +40,15 @@ Cuenta con dos vistas principales:
 ##  Capturas
 
 ### Pantalla principal
-![Header](https://cdn.getyourguide.com/img/location/606212d105cef-wide.jpeg/99.jpg)
+
 <img width="1897" height="975" alt="image" src="https://github.com/user-attachments/assets/634fecf8-4c95-460e-b355-5b7665494f8f" />
 
 ### Gestión de Viajes (Admin)
-![Gestión de Viajes](https://cdn.gaijinpot.com/app/uploads/sites/6/2019/11/Chureito-Pagoda-Autumn-1024x568.jpg)
+
 <img width="919" height="606" alt="image" src="https://github.com/user-attachments/assets/ad6fcea7-3193-4065-9856-fd197294f23e" />
 
 ### Registro de Usuario
-![Usuario Registrado](https://cdn.getyourguide.com/img/location/5b60ccb628680.jpeg/99.jpg)
+
 <img width="900" height="540" alt="image" src="https://github.com/user-attachments/assets/3468a6fd-2f50-46e0-ab66-ccb739eb08f5" />
 
 ---
