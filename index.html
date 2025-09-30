@@ -9,19 +9,20 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: #0f0f0f url('https://www.transparenttextures.com/patterns/asfalt-light.png');
       color: #f5f5f5;
       overflow-x: hidden;
       transition: background 0.5s, color 0.5s;
     }
 
-    /* 🔹 NAVBAR */
+
+     /* 🔹 NAVBAR */
     nav {
       background: #111;
       padding: 15px;
       text-align: center;
-      border-bottom: 3px solid #e11d48;
+      border-bottom: 3px solid #06b6d4;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -34,19 +35,19 @@
     }
     nav a {
       text-decoration: none;
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Lora', serif;
       font-size: 1.2rem;
-      color: #e11d48;
+      color: #06b6d4;
       padding: 6px 12px;
       border-radius: 6px;
       transition: 0.3s;
     }
     nav a:hover, nav a.active {
-      background: #e11d48;
+      background: #06b6d4;
       color: #fff;
     }
 
-    /* 🔹 HEADER */
+     /* 🔹 HEADER */
     header {
       height: 100vh;
       display: flex;
@@ -73,9 +74,9 @@
       z-index: -1;
     }
     header h1 {
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Lora', serif;
       font-size: 4rem;
-      color: #e11d48;
+      color: #06b6d4;
       text-shadow: 2px 2px 15px #000;
       animation: fadeDown 1.5s ease;
     }
@@ -89,13 +90,14 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* 🔹 SECCIONES */
+
+     /* 🔹 SECCIONES */
     section { padding: 60px 20px; max-width: 900px; margin: auto; text-align: center; }
     section h2 {
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Lora', serif;
       font-size: 2.5rem;
       margin-bottom: 20px;
-      color: #e11d48;
+      color: #06b6d4;
       position: relative;
       display: inline-block;
     }
@@ -103,7 +105,7 @@
       content: "";
       position: absolute;
       width: 80px; height: 4px;
-      background: #e11d48;
+      background: #06b6d4;
       bottom: -10px; left: 50%;
       transform: translateX(-50%);
     }
@@ -125,10 +127,10 @@
     }
     .card:hover {
       transform: scale(1.05);
-      border-color: #e11d48;
-      box-shadow: 0 0 20px rgba(225, 29, 72, 0.6);
+      border-color: #06b6d4;
+      box-shadow: 0 0 20px rgba(6,182,212,0.6);
     }
-    .card h3 { margin: 10px 0; font-family: 'Noto Serif JP', serif; color: #fff; }
+    .card h3 { margin: 10px 0; font-family: 'Lora', serif; color: #fff; }
     .card p { font-size: 0.9rem; color: #ddd; }
 
     /* 🔹 CRUD */
@@ -136,7 +138,7 @@
       display: none;
       background: #111;
       color: #f5f5f5;
-      border-top: 4px solid #e11d48;
+      border-top: 4px solid #06b6d4;
       padding: 40px 20px;
       border-radius: 10px;
     }
@@ -148,27 +150,27 @@
     }
     #viaje-form input, #viaje-form textarea, #viaje-form button {
       padding: 10px;
-      border: 2px solid #e11d48;
+      border: 2px solid #06b6d4;
       border-radius: 6px;
       background: #1a1a1a;
       color: #fff;
     }
     #viaje-form button {
-      background: #e11d48;
+      background: #06b6d4;
       color: #fff;
       cursor: pointer;
       font-weight: bold;
       transition: transform 0.2s;
     }
-    #viaje-form button:hover { transform: scale(1.05); background: #c8102e; }
+    #viaje-form button:hover { transform: scale(1.05); background: #0891b2; }
 
     .crud-section .card {
       background: #1a1a1a;
       color: #f5f5f5;
     }
-    .crud-section .card h3 { color: #e11d48; }
+    .crud-section .card h3 { color: #06b6d4; }
     .crud-section .card button {
-      background: #e11d48;
+      background: #06b6d4;
       margin: 5px;
       padding: 5px 10px;
       border: none;
@@ -177,9 +179,9 @@
       cursor: pointer;
       transition: 0.2s;
     }
-    .crud-section .card button:hover { background: #c8102e; }
+    .crud-section .card button:hover { background: #0891b2; }
 
-    /* 🔹 POPUP */
+   /* 🔹 POPUP */
     .popup {
       display: none;
       position: fixed;
@@ -194,15 +196,15 @@
       background: #111;
       padding: 25px;
       border-radius: 12px;
-      border: 3px solid #e11d48;
+      border: 3px solid #06b6d4;
       text-align: center;
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Lora', serif;
       position: relative;
       max-width: 400px;
       animation: zoomIn 0.3s ease;
       color: #fff;
     }
-    .popup-content h3 { margin-bottom: 20px; color: #e11d48; }
+    .popup-content h3 { margin-bottom: 20px; color: #06b6d4; }
     .popup-content button {
       margin: 5px;
       padding: 8px 15px;
@@ -211,23 +213,22 @@
       cursor: pointer;
       font-weight: bold;
     }
-    .btn-confirm { background: #e11d48; color: #fff; }
+    .btn-confirm { background: #06b6d4; color: #fff; }
     .btn-cancel { background: #444; color: #fff; }
-
 
 
     /* 🔹 Contenedor de pasajeros */
 /* 🔹 Animación abrir pasajeros */
 .pasajeros {
-  margin-top: 15px;
-  padding: 15px;
-  border: 2px solid #e11d48;
-  border-radius: 10px;
-  background: #1a1a1a;
-  overflow: hidden;
-  animation: slideDown 0.4s ease forwards;
-  transform-origin: top;
-}
+      margin-top: 15px;
+      padding: 15px;
+      border: 2px solid #06b6d4;
+      border-radius: 10px;
+      background: #1a1a1a;
+      overflow: hidden;
+      animation: slideDown 0.4s ease forwards;
+      transform-origin: top;
+    }
 
 @keyframes slideDown {
   from {
@@ -330,7 +331,7 @@
   </style>
 </head>
 <body>
-  <!-- NAV -->
+
   <nav>
     <ul>
       <li><a href="#inicio" class="active" onclick="mostrarInicio()">Inicio</a></li>
@@ -338,62 +339,69 @@
     </ul>
   </nav>
 
-  <!-- HEADER -->
   <header id="inicio">
     <video autoplay muted loop playsinline>
       <source src="https://www.pexels.com/es-es/download/video/6602522/" type="video/mp4">
     </video>
-    <h1>富士山 • Monte Fuji</h1>
-    <p>La montaña sagrada de Japón</p>
+    <h1>Explora el Mundo con Nosotros</h1>
+    <p>Tours & Viajes</p>
   </header>
 
-  <!-- HISTORIA -->
-  <section>
-    <h2 data-animate>Historia</h2>
-    <p data-animate>Con 3.776 metros de altura, el Monte Fuji es el pico más alto de Japón y un volcán venerado desde tiempos antiguos.</p>
-  </section>
+ <section>
+  <h2 data-animate>Sobre Nosotros</h2>
+  <p data-animate>
+    Somos una agencia apasionada por el turismo cultural y de aventura. 
+    Nuestro objetivo es ofrecer experiencias únicas en destinos emblemáticos del mundo, 
+    combinando comodidad, seguridad y un toque local en cada recorrido.
+  </p>
+</section>
 
-  <!-- LUGARES -->
-  <section>
-    <h2 data-animate>Lugares destacados</h2>
-    <div class="cards">
-      <div class="card" data-animate>
-        <img src="https://cdn.getyourguide.com/img/location/5b60ccb628680.jpeg/99.jpg" alt="Lago Kawaguchi" style="width:100%;border-radius:8px;">
-        <h3>Lago Kawaguchi</h3>
-        <p>Famoso por reflejar el Fuji en sus aguas.</p>
-      </div>
-      <div class="card" data-animate>
-        <img src="https://cdn.gaijinpot.com/app/uploads/sites/6/2019/11/Chureito-Pagoda-Autumn-1024x568.jpg" alt="Pagoda Chureito" style="width:100%;border-radius:8px;">
-        <h3>Pagoda Chureito</h3>
-        <p>El mirador más icónico del monte nevado.</p>
-      </div>
-      <div class="card" data-animate>
-        <img src="https://cdn.getyourguide.com/img/location/606212d105cef-wide.jpeg/99.jpg" alt="5ta Estación" style="width:100%;border-radius:8px;">
-        <h3>5ta Estación</h3>
-        <p>Punto de partida favorito para la cima.</p>
-      </div>
+<!-- DESTINOS DESTACADOS -->
+<section>
+  <h2 data-animate>Destinos Destacados</h2>
+  <div class="cards">
+    <div class="card" data-animate>
+      <img src="https://images.unsplash.com/photo-1549887534-3db1bd59dcca" alt="París" style="width:100%;border-radius:8px;">
+      <h3>París, Francia</h3>
+      <p>Descubre la Torre Eiffel, el Louvre y el encanto de la Ciudad de la Luz.</p>
     </div>
-  </section>
-
+    <div class="card" data-animate>
+      <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe" alt="Machu Picchu" style="width:100%;border-radius:8px;">
+      <h3>Machu Picchu, Perú</h3>
+      <p>Una de las maravillas del mundo antiguo, llena de historia y paisajes increíbles.</p>
+    </div>
+    <div class="card" data-animate>
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Maldivas" style="width:100%;border-radius:8px;">
+      <h3>Islas Maldivas</h3>
+      <p>Playas paradisíacas, aguas turquesa y la mejor experiencia de relax en el océano Índico.</p>
+    </div>
+    <div class="card" data-animate>
+      <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad" alt="Nueva York" style="width:100%;border-radius:8px;">
+      <h3>Nueva York, EE.UU.</h3>
+      <p>La ciudad que nunca duerme, con Broadway, Times Square y Central Park.</p>
+    </div>
+  </div>
+</section>
   <!-- CRUD -->
   <section id="viajes" class="crud-section">
-    <h2>Gestión de Viajes al Monte Fuji</h2>
+    <h2>Gestión de Viajes/Tours</h2>
     <form id="viaje-form">
       <input type="hidden" id="viaje-id">
       <input type="text" id="nombre" placeholder="Nombre del viaje" required>
       <input type="date" id="fecha" required>
       <input type="number" id="precio" placeholder="Precio ($)" required>
       <textarea id="descripcion" placeholder="Descripción del viaje" required></textarea>
+      <!-- 🔹 Nuevo campo imagen -->
+      <input type="url" id="imagen" placeholder="URL de la imagen">
+
       <button type="submit">Guardar Viaje</button>
     </form>
     <div id="lista-viajes" class="cards"></div>
   </section>
 
-  <footer><center>Bim Barabum Mr.Worldwide
-When I Step On In A Room 
-Dale! </center></footer>
+  <footer>Bim Barabum Mr.Worldwide<br>Dale!</footer>
 
-  <!-- POPUP -->
+
   <div class="popup" id="popup">
     <div class="popup-content">
       <h3 id="popup-msg">Mensaje</h3>
@@ -456,13 +464,14 @@ Dale! </center></footer>
       contenedor.innerHTML = "";
       snapshot.forEach(d => {
         const data = d.data();
-               contenedor.innerHTML += `
+        contenedor.innerHTML += `
           <div class="card" data-id="${d.id}">
+            ${data.imagen ? `<img src="${data.imagen}" alt="${data.nombre}" style="width:100%;border-radius:8px;max-height:180px;object-fit:cover;">` : ""}
             <h3>${data.nombre}</h3>
             <p><b>Fecha:</b> ${data.fecha}</p>
             <p><b>Precio:</b> $${data.precio}</p>
             <p>${data.descripcion}</p>
-            <button onclick="editarViaje('${d.id}', '${data.nombre}', '${data.fecha}', '${data.precio}', '${data.descripcion}')">Editar</button>
+            <button onclick="editarViaje('${d.id}','${data.nombre}','${data.fecha}','${data.precio}','${data.descripcion}','${data.imagen || ""}')">Editar</button>
             <button onclick="confirmarEliminar('${d.id}')">Eliminar</button>
             <button onclick="verPasajeros('${d.id}')">Ver Pasajeros</button>
           </div>`;
@@ -477,13 +486,13 @@ Dale! </center></footer>
         nombre: document.getElementById("nombre").value,
         fecha: document.getElementById("fecha").value,
         precio: parseFloat(document.getElementById("precio").value),
-        descripcion: document.getElementById("descripcion").value
+        descripcion: document.getElementById("descripcion").value,
+        imagen: document.getElementById("imagen").value
       };
       if (id) { 
         await updateDoc(doc(db, "viajes", id), viajeData); 
         showPopup("Viaje actualizado"); 
-      }
-      else { 
+      } else { 
         await addDoc(viajesCol, viajeData); 
         showPopup("Viaje agregado con éxito"); 
       }
@@ -500,12 +509,13 @@ Dale! </center></footer>
       });
     };
 
-    window.editarViaje = (id, nombre, fecha, precio, descripcion) => {
+     window.editarViaje = (id, nombre, fecha, precio, descripcion, imagen) => {
       document.getElementById("viaje-id").value = id;
       document.getElementById("nombre").value = nombre;
       document.getElementById("fecha").value = fecha;
       document.getElementById("precio").value = precio;
       document.getElementById("descripcion").value = descripcion;
+      document.getElementById("imagen").value = imagen;
       showPopup("Edita y guarda para actualizar");
     };
 
